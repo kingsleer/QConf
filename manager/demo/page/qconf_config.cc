@@ -224,7 +224,8 @@ static int load_conf_(const string &conf_path)
         string idc(key, key.find(".") + 1);
         if (QCONF_OK != is_valid_idc(idc, value)) continue;
 
-        ret = _idc_conf_map.insert(make_pair<string, string>(idc, value));
+        //ret = _idc_conf_map.insert(make_pair<string, string>(idc, value));
+        ret = _idc_conf_map.insert(make_pair(idc, value));
         if (!ret.second) continue;
     }
     fclose(conf_file);
